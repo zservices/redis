@@ -6,7 +6,8 @@ to have the redis-backend running, to use *shared-variables* (between shells). B
 the variables using lazy method (`-L {type}` option):
 
 ```zsh
-ztie -d db/redis -f "127.0.0.1/3/MYLIST" -L list mylist
+# Port 4815, database nr. 3, key "MYLIST"
+ztie -d db/redis -f "127.0.0.1:4815/3/MYLIST" -L list mylist
 ```
 
 The command `ztie` is provided by [zdharma/zredis](https://github.com/zdharma/zredis) plugin.
