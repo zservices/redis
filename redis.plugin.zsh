@@ -20,6 +20,9 @@ local pidfile="$ZSRV_WORK_DIR"/"$ZSRV_ID".pid logfile="$ZSRV_WORK_DIR"/"$ZSRV_ID
 local cfg="${ZSRV_DIR}/redis.conf"
 [[ ! -f "$cfg" ]] && cfg="${ZSRV_DIR}/redis.conf.default"
 
+# FIXME
+mkdir -p /usr/local/var/db/redis
+
 if [[ -f "$cfg" ]]; then
     { local pid="$(<$pidfile)"; } 2>/dev/null
     if [[ ${+commands[pkill]} = 1 && "$pid" = <-> && $pid -gt 0 ]]; then
